@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public class CourseTableModel extends AbstractTableModel {
 
-    public ArrayList<Course> list;
+    public ArrayList<Course> list= new ArrayList<>();
+
 
     public CourseTableModel() {
         list = new ArrayList<>();
