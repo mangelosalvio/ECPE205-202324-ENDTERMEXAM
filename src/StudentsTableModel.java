@@ -1,7 +1,7 @@
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 
-public class StudentsTableModel extends AbstractTableModel {
+public class    StudentsTableModel extends AbstractTableModel {
 
     public ArrayList<Student> list;
 

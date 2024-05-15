@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class StudentsPanel extends JPanel {
 
@@ -13,5 +14,6 @@ public class StudentsPanel extends JPanel {
     private void init(){
         studentsTableModel  = new StudentsTableModel();
         studentsTable = new JTable(studentsTableModel);
+
     }
 }
