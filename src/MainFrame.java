@@ -5,6 +5,7 @@ public class MainFrame extends JFrame {
     CoursePanel coursePanel;
     JTable enrolleesTable;
     EnrolledTableModel enrolledTableModel;
+
     JButton enrollButton;
 
     public MainFrame() {
@@ -19,9 +20,12 @@ public class MainFrame extends JFrame {
         enrolleesTable = new JTable(enrolledTableModel);
 
 
-
 //        setVisible(true);
 //        pack();
 //        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        setVisible(true);
+        pack();
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 }
