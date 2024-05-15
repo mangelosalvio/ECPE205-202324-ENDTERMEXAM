@@ -58,8 +58,6 @@ public class CoursePanel extends JPanel {
                 courseNameField.requestFocus();
                 courseTable.clearSelection();
 
-
-
             }
         });
 
