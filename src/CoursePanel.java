@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CoursePanel extends JPanel {
 
@@ -60,5 +62,26 @@ public JButton AddCourseButton;
         c.gridx=0;
         c.gridy=3;
        this.add(TableMain,c);
+
+
+       AddCourseButton.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               String CourseName = courseNameField.getText();
+               String CourseCode = courseCodeField.getText();
+               if(!CourseName.isEmpty() && !CourseCode.isEmpty()){
+                   Course course = new Course(CourseName, CourseCode);
+                   courseTableModel.addCourse(course);
+                   courseTableModel.fireTableDataChanged();
+                   courseCodeField.setText("");
+                   courseNameField.setText("");
+               }
+               else {
+                   JOptionPane.showMessageDialog(null, "Nothing to add", null, JOptionPane.ERROR_MESSAGE);
+
+               }
+
+           }
+       });
     }
 }

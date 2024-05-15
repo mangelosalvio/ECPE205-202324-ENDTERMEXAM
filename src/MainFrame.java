@@ -12,10 +12,9 @@ public class MainFrame extends JFrame {
     }
 
     private void init() {
-        studentsPanel = new StudentsPanel();
+
         coursePanel = new CoursePanel();
-        enrolledTableModel = new EnrolledTableModel();
-        enrolleesTable = new JTable(enrolledTableModel);
+
 
 
 

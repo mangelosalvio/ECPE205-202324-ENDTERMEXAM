@@ -8,13 +8,10 @@ public class TestFrames {
          */
 
         //display whole frame
-        new MainFrame();
+
 
         //display only studnets frame
-        JFrame studentsFrame = new JFrame();
-        studentsFrame.add(new StudentsPanel());
-        studentsFrame.pack();
-        studentsFrame.setVisible(true);
+
 
 
         //display course frame
