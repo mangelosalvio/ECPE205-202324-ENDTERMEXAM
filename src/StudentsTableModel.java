@@ -39,8 +39,12 @@ public class StudentsTableModel extends AbstractTableModel {
         Student student = list.get(rowIndex);
         if ( columnIndex == 0 ) {
             return student.getId();
-        } else {
+        } else if ( columnIndex == 0 ) {
             return student.getName();
+        } else {
+            return null;
+        }
+
         }
     }
-}
+

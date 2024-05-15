@@ -23,6 +23,7 @@ public class StudentsPanel extends JPanel {
         nameField = new JTextField(10);
         studentAdd = new JButton("ADD");
 
+
         add(studentIDLabel,0,0,1,1,1,1);
         add(studentIDField,1,0,2,1,1,1);
         add(nameLabel,0,1,1,1,1,1);

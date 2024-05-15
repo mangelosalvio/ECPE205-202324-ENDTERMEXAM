@@ -10,6 +10,7 @@ public class Main extends JFrame {
         JButton okbtn = new JButton("OK");
         JButton cancelbtn = new JButton("Cancel");
 
+
         Container container = this.getContentPane();
         StudentsPanel studentsPanel = new StudentsPanel();
         CoursePanel coursePanel = new CoursePanel();
@@ -17,6 +18,7 @@ public class Main extends JFrame {
 
         mypanel.add(okbtn);
         mypanel.add(cancelbtn);
+        
 
 
         container.setLayout(new BorderLayout());
