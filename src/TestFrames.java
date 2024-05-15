@@ -1,11 +1,17 @@
 import javax.swing.*;
 
 public class TestFrames {
+
+
+
     public static void main(String[] args) {
 
         /**
          * FOR TESTING PURPOSES
          */
+
+        StudentsPanel studentsPanel;
+
 
         //display whole frame
         new MainFrame();
