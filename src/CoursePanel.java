@@ -63,7 +63,6 @@ public class CoursePanel extends JPanel {
         c.weighty = weightY;
 
         c.fill = GridBagConstraints.NONE;
-        //c.insets = new Insets(5,5,5,5);
         this.add(component,c);
 
     }
