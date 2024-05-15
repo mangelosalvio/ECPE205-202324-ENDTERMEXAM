@@ -64,7 +64,7 @@ public class CoursePanel extends JPanel {
 
         c.fill = GridBagConstraints.NONE;
         this.add(component,c);
-
+//message from harold
     }
 
 }
