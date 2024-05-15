@@ -5,6 +5,7 @@ public class MainFrame extends JFrame {
     CoursePanel coursePanel;
     JTable enrolleesTable;
     EnrolledTableModel enrolledTableModel;
+
     JButton enrollButton;
 
     public MainFrame() {
@@ -12,11 +13,11 @@ public class MainFrame extends JFrame {
     }
 
     private void init() {
+
         studentsPanel = new StudentsPanel();
         coursePanel = new CoursePanel();
         enrolledTableModel = new EnrolledTableModel();
         enrolleesTable = new JTable(enrolledTableModel);
-
 
 
 
