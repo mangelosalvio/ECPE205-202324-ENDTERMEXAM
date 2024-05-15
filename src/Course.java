@@ -1,3 +1,4 @@
+import javax.swing.*;
 public class Course {
     public String courseCode, name;
 
@@ -21,4 +22,6 @@ public class Course {
     public void setName(String name) {
         this.name = name;
     }
+
 }
+
