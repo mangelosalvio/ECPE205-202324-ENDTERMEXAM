@@ -62,11 +62,11 @@ public class StudentsPanel extends JPanel {
         add(new JScrollPane(studentsTable), gbc);
     }
 
-//    public static void main(String[] args) {
-//        JFrame frame = new JFrame("Students Panel");
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.getContentPane().add(new StudentsPanel());
-//        frame.pack();
-//        frame.setVisible(true);
-//    }
+        public static void main(String[] args) {
+        JFrame frame = new JFrame("Students Panel");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(new StudentsPanel());
+        frame.pack();
+        frame.setVisible(true);
+    }
 }

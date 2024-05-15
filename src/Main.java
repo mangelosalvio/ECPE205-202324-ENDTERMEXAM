@@ -1,18 +1,30 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Main {
 
-//    StudentsPanel sp;
-    public static void main(String[] args) {
-        new MainFrame();
+   public static void main(String[] args) {
+
+       StudentsPanel sp = new StudentsPanel();
+       CoursePanel cp = new CoursePanel();
 
 
-//        JFrame frame = new JFrame("Students Panel");
-//        frame.add(sp);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.getContentPane().add(new StudentsPanel());
-//        frame.pack();
-//        frame.setVisible(true);
-    }
+       JFrame frame = new JFrame();
+       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+       Container container = frame.getContentPane();
+
+
+       container.setLayout(new BorderLayout());
+
+
+       container.add(sp, BorderLayout.WEST);
+       container.add(cp, BorderLayout.EAST);
+
+       frame.pack();
+       frame.setVisible(true);
+   }
 }
+
 
