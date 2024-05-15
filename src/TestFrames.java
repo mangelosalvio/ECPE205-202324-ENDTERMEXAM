@@ -8,16 +8,14 @@ public class TestFrames {
          */
 
         //display whole frame
-
-
-        //display only studnets frame
-
-
-
-        //display course frame
+        new MainFrame();
+        /*JFrame studentsFrame = new JFrame();
+        studentsFrame.add(new StudentsPanel());
+        studentsFrame.pack();
+        studentsFrame.setVisible(true);
         JFrame courseFrame = new JFrame();
         courseFrame.add(new CoursePanel());
         courseFrame.pack();
-        courseFrame.setVisible(true);
+        courseFrame.setVisible(true);*/
     }
 }

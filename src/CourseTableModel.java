@@ -15,6 +15,10 @@ public class CourseTableModel extends AbstractTableModel {
         list.add(course);
     }
 
+    public Course getCourse (int index)
+    {
+        return list.get(index);
+    }
     public void removeCourse( int index ) {
         list.remove(index);
     }

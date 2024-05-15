@@ -13,6 +13,9 @@ public class StudentsTableModel extends AbstractTableModel {
         list.add(student);
     }
 
+    public Student getStudent(int index){
+        return list.get(index);
+    }
 
     public void removeStudent( int index ) {
         list.remove(index);
