@@ -35,4 +35,7 @@ public class EnrolledTableModel extends AbstractTableModel {
             return enrolledCourse.studentsToString();
         }
     }
+    public EnrolledCourse getEnrollee(int index) {return enrolledCourses.get(index);}
+    public void addEnrollee(EnrolledCourse enrollee){enrolledCourses.add(enrollee);}
 }
+
