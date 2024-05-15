@@ -12,6 +12,7 @@ public class MainFrame extends JFrame {
     }
 
     private void init() {
+
         studentsPanel = new StudentsPanel();
         coursePanel = new CoursePanel();
         enrolledTableModel = new EnrolledTableModel();
@@ -19,10 +20,8 @@ public class MainFrame extends JFrame {
 
 
 
-
-
-        setVisible(true);
-        pack();
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+//        setVisible(true);
+//        pack();
+//        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 }
