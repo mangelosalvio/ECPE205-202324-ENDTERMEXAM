@@ -18,6 +18,10 @@ public class MainFrame extends JFrame {
     private void init() {
         studentsPanel = new StudentsPanel();
         coursePanel = new CoursePanel();
+        enrolledTableModel = new EnrolledTableModel();
+        enrolleesTable = new JTable(enrolledTableModel);
+        enrollButton = new JButton("ENROLL");
+
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
 
