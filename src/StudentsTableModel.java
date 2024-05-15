@@ -30,7 +30,7 @@ public class StudentsTableModel extends AbstractTableModel {
 
     @Override
     public String getColumnName(int column) {
-        String[] columns = new String[]{"ID","Name"};
+        String[] columns = new String[]{"Code","Name"};
         return columns[column];
     }
 
