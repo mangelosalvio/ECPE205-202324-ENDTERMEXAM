@@ -24,12 +24,12 @@ public class MainFrame extends JFrame {
         enrolledTableModel = new EnrolledTableModel();
         enrolleesTable = new JTable(enrolledTableModel);
 
-        container.add(new JScrollPane(enrolleesTable),BorderLayout.SOUTH);
 
         JPanel enrollButtonPanel;
         container.add(enrollButtonPanel = new JPanel(), BorderLayout.WEST);
         enrollButtonPanel.add(enrollButton = new JButton("ENROLL"));
 
+        container.add(new JScrollPane(enrolleesTable),BorderLayout.SOUTH);
 
         enrollButton.addActionListener(new ActionListener() {
             @Override
@@ -37,7 +37,8 @@ public class MainFrame extends JFrame {
             }
         });
 
-        this.add(coursePanel);
+        this.add(studentsPanel, BorderLayout.WEST);
+        this.add(coursePanel, BorderLayout.EAST);
 
         setVisible(true);
         pack();
