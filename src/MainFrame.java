@@ -37,6 +37,7 @@ public class MainFrame extends JFrame {
             }
         });
 
+        this.add(coursePanel);
 
         setVisible(true);
         pack();
