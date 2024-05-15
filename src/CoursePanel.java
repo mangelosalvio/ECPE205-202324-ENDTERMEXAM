@@ -47,7 +47,7 @@ public class CoursePanel extends JPanel {
         String courseName = courseNameField.getText();
         if (!courseCode.isEmpty() && !courseName.isEmpty()) {
             courseTableModel.addCourse(new Course(courseCode, courseName));
-            // Clear the text fields after adding
+
             courseCodeField.setText("");
             courseNameField.setText("");
         } else {
