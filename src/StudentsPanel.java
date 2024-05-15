@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,23 +22,15 @@ public class StudentsPanel extends JPanel {
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
 
-        add(0,0,1,1,c);
-        this.add(studentIDLabel = new JLabel("Student ID: "),c);
+        addComponent(studentIDLabel = new JLabel("Student ID:"),0,0,1,1,0,0,GridBagConstraints.NONE,GridBagConstraints.LINE_END);
+        addComponent(studentIDField = new JTextField(40),1,0,1,1,1,0,GridBagConstraints.HORIZONTAL);
 
-        add(1,0,3,1,c);
-        this.add(studentIDField = new JTextField(15),c);
+        addComponent(nameLabel = new JLabel("Name:"),0,1,1,1,0,0,GridBagConstraints.BOTH);
+        addComponent(nameField = new JTextField(40),1,1,1,1,1,0,GridBagConstraints.HORIZONTAL);
 
-        add(0,1,1,1,c);
-        this.add(nameLabel = new JLabel("Name: "),c);
+        addComponent(studentAddBtn = new JButton("Add"),1,2,2,1,0,0,GridBagConstraints.NONE, GridBagConstraints.LINE_START);
 
-        add(1,1,3,1,c);
-        this.add(nameField = new JTextField(15),c);
-
-        add(1,2,1,1,c);
-        this.add(studentAddBtn = new JButton("Add"),c);
-
-        add1(0,3,4,1,c);
-        this.add(new JScrollPane(studentsTable),c);
+        addComponent(new JScrollPane(studentsTable), 0,3,2,1,1,1,GridBagConstraints.BOTH, GridBagConstraints.CENTER);
 
         studentAddBtn.addActionListener(new ActionListener() {
             @Override
@@ -60,32 +53,36 @@ public class StudentsPanel extends JPanel {
 
     }
 
-    private static void add(int gridx, int gridy, GridBagConstraints c)
-    {
-        c.gridx = gridx;
-        c.gridy = gridy;
-        c.gridwidth = 1;
-        c.gridheight = 1;
-        c.fill = GridBagConstraints.BOTH;
-        c.insets = new Insets(5,5,5,5);
-    }
-    private static void add(int gridx, int gridy, int gridWidth, int gridHeight, GridBagConstraints c)
-    {
-        c.gridx = gridx;
-        c.gridy = gridy;
-        c.gridwidth = gridWidth;
-        c.gridheight = gridHeight;
-        c.fill = GridBagConstraints.BOTH;
-        c.insets = new Insets(5,5,5,5);
+    private void addComponent(Component component, int x, int y, int width, int height,
+                              int weightX, int weightY, int fill){
+
+        GridBagConstraints c = new GridBagConstraints();
+
+        c.gridx = x;
+        c.gridy = y;
+        c.gridwidth = width;
+        c.gridheight = height;
+        c.weightx = weightX;
+        c.weighty = weightY;
+        c.fill = fill;
+        c.insets = new Insets(3,5,3,5);
+        add(component, c);
     }
 
-    private static void add1(int gridx, int gridy, int gridWidth, int gridHeight, GridBagConstraints c)
-    {
-        c.gridx = gridx;
-        c.gridy = gridy;
-        c.gridwidth = gridWidth;
-        c.gridheight = gridHeight;
-        c.fill = GridBagConstraints.SOUTH;
-        c.insets = new Insets(5,5,5,5);
+    private void addComponent(Component component, int x, int y, int width, int height,
+                              int weightX, int weightY, int fill, int anchor){
+
+        GridBagConstraints c = new GridBagConstraints();
+
+        c.gridx = x;
+        c.gridy = y;
+        c.gridwidth = width;
+        c.gridheight = height;
+        c.weightx = weightX;
+        c.weighty = weightY;
+        c.fill = fill;
+        c.anchor = anchor;
+        c.insets = new Insets(3,5,3,5);
+        add(component, c);
     }
 }
