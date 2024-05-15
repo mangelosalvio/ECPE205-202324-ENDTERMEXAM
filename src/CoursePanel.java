@@ -18,8 +18,8 @@ public class CoursePanel extends JPanel {
         courseTableModel = new CourseTableModel();
         courseTable = new JTable(courseTableModel);
 
-        courseCodeField = new JTextField(10); // Adjust size as needed
-        courseNameField = new JTextField(20); // Adjust size as needed
+        courseCodeField = new JTextField(10);
+        courseNameField = new JTextField(20);
 
         JPanel inputPanel = new JPanel();
         inputPanel.add(new JLabel("Course Code:"));
@@ -43,31 +43,37 @@ public class CoursePanel extends JPanel {
     }
 
     private void addCourseToList() {
-        String courseCode = courseCodeField.getText();
-        String courseName = courseNameField.getText();
+        String courseCode = courseCodeField.getText().trim();
+        String courseName = courseNameField.getText().trim();
+
         if (!courseCode.isEmpty() && !courseName.isEmpty()) {
             courseTableModel.addCourse(new Course(courseCode, courseName));
-
             courseCodeField.setText("");
             courseNameField.setText("");
+
+
         } else {
             JOptionPane.showMessageDialog(this, "Please enter both Course Code and Course Name.");
         }
     }
 
     public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                JFrame frame = new JFrame("Course Panel");
 
-        JFrame frame = new JFrame("Course Panel");
+                CoursePanel panel = new CoursePanel();
+                frame.getContentPane().add(panel);
 
-        CoursePanel panel = new CoursePanel();
-        frame.getContentPane().add(panel);
+                frame.setSize(400, 300);
+                frame.setVisible(true);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        frame.setSize(400, 300);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                panel.courseTableModel.addCourse(new Course("ECPE205", "Software Design"));
+                panel.courseTableModel.addCourse(new Course("ECPE303", "Feedback and Control Systems"));
+                panel.courseTableModel.addCourse(new Course("USELF", "Understanding the self"));
+            }
 
-
-        panel.courseTableModel.addCourse(new Course("ECPE205", "Software Design"));
-        panel.courseTableModel.addCourse(new Course("ECPE303", "Feedback and Control Systems"));
+        });
     }
 }
