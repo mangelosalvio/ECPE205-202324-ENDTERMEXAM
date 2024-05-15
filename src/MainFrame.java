@@ -18,7 +18,7 @@ public class MainFrame extends JFrame {
         enrolleesTable = new JTable(enrolledTableModel);
 
 
-
+        this.add(coursePanel);
 
 
         setVisible(true);
