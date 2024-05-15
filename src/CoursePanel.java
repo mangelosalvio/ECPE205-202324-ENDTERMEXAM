@@ -28,10 +28,22 @@ public class CoursePanel extends JPanel {
         inputPanel.add(courseNameField);
 
         JButton addButton = new JButton("Add");
+
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                addCourseToList();
+                String courseCode = courseCodeField.getText();
+                String courseName = courseNameField.getText();
+
+                if (!courseCode.isEmpty() && !courseName.isEmpty()) {
+                    courseTableModel.addCourse(new Course(courseCode, courseName));
+                    courseCodeField.setText("");
+                    courseNameField.setText("");
+
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please enter both Course Code and Course Name.");
+                }
             }
         });
 
@@ -40,21 +52,6 @@ public class CoursePanel extends JPanel {
         setLayout(new BorderLayout());
         add(inputPanel, BorderLayout.NORTH);
         add(new JScrollPane(courseTable), BorderLayout.CENTER);
-    }
-
-    private void addCourseToList() {
-        String courseCode = courseCodeField.getText().trim();
-        String courseName = courseNameField.getText().trim();
-
-        if (!courseCode.isEmpty() && !courseName.isEmpty()) {
-            courseTableModel.addCourse(new Course(courseCode, courseName));
-            courseCodeField.setText("");
-            courseNameField.setText("");
-
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Please enter both Course Code and Course Name.");
-        }
     }
 
     public static void main(String[] args) {
