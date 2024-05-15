@@ -7,6 +7,9 @@ public class TestFrames {
          * FOR TESTING PURPOSES
          */
 
+        StudentsPanel studentsPanel;
+
+
         //display whole frame
         new MainFrame();
 
