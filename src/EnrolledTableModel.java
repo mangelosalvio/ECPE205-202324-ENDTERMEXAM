@@ -20,16 +20,16 @@ public class EnrolledTableModel extends AbstractTableModel {
 
     @Override
     public String getColumnName(int column) {
-        String[] columns = new String[]{"Code","Name","Enrollees"};
+        String[] columns = new String[]{"Code", "Name", "Enrollees"};
         return columns[column];
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         EnrolledCourse enrolledCourse = enrolledCourses.get(rowIndex);
-        if ( columnIndex == 0 ) {
+        if (columnIndex == 0) {
             return enrolledCourse.getCourse().getCourseCode();
-        } else if ( columnIndex == 1 )  {
+        } else if (columnIndex == 1) {
             return enrolledCourse.getCourse().getName();
         } else {
             return enrolledCourse.studentsToString();

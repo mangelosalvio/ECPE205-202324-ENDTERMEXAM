@@ -12,14 +12,14 @@ public class TestFrames {
 
         //display only studnets frame
         JFrame studentsFrame = new JFrame();
-        studentsFrame.add(new StudentsPanel());
+//        studentsFrame.add(new StudentsPanel());
         studentsFrame.pack();
         studentsFrame.setVisible(true);
 
 
         //display course frame
         JFrame courseFrame = new JFrame();
-        courseFrame.add(new CoursePanel());
+//        courseFrame.add(new CoursePanel());
         courseFrame.pack();
         courseFrame.setVisible(true);
     }

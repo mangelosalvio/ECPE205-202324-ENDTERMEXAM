@@ -1,8 +1,8 @@
 import javax.swing.*;
 
 public class MainFrame extends JFrame {
-    StudentsPanel studentsPanel;
-    CoursePanel coursePanel;
+//    StudentsPanel studentsPanel;
+//    CoursePanel coursePanel;
     JTable enrolleesTable;
     EnrolledTableModel enrolledTableModel;
     JButton enrollButton;
