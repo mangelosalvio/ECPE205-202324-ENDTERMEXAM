@@ -15,4 +15,7 @@ public class CoursePanel extends JPanel {
         courseTableModel = new CourseTableModel();
         courseTable = new JTable(courseTableModel);
     }
+    public static void main(String[] args) {
+        new CoursePanel();
+    }
 }
