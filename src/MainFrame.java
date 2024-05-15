@@ -1,8 +1,9 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class MainFrame extends JFrame {
-    StudentsPanel studentsPanel;
-    CoursePanel coursePanel;
+    StudentsPanel studentsPanel = new StudentsPanel();
+    CoursePanel coursePanel = new CoursePanel();
     JTable enrolleesTable;
     EnrolledTableModel enrolledTableModel;
 
@@ -14,8 +15,8 @@ public class MainFrame extends JFrame {
 
     private void init() {
 
-        studentsPanel = new StudentsPanel();
-        coursePanel = new CoursePanel();
+        this.add(studentsPanel, BorderLayout.WEST);
+        this.add(coursePanel, BorderLayout.EAST);
         enrolledTableModel = new EnrolledTableModel();
         enrolleesTable = new JTable(enrolledTableModel);
 
