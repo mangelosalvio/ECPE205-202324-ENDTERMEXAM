@@ -15,6 +15,7 @@ public class TestFrames {
         studentsFrame.add(new StudentsPanel());
         studentsFrame.pack();
         studentsFrame.setVisible(true);
+        studentsFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 
         //display course frame
