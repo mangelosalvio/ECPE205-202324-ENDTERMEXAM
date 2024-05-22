@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CoursePanel extends JPanel {
 
@@ -9,7 +11,7 @@ public class CoursePanel extends JPanel {
     public CourseTableModel courseTableModel;
 
 
-    public JButton courseAdd;
+    JButton courseAdd;
 
 
     public CoursePanel() {
@@ -24,7 +26,29 @@ public class CoursePanel extends JPanel {
         courseCodeField = new JTextField(10);
         courseAdd = new JButton("ADD");
         this.setLayout(new GridBagLayout());
+        courseAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String courseName = courseNameField.getText();
+                String courseCode = courseCodeField.getText();
 
+                Course course1 = new Course(courseCode,courseName);
+
+                if(! courseName.isEmpty() && !courseCode.isEmpty()){
+                    courseNameField.setText("");
+                    courseCodeField.setText("");
+
+                    courseTableModel.list.add(course1);
+                    courseTable.updateUI();
+
+                }
+                else {
+                    JOptionPane.showMessageDialog(CoursePanel.this, "Please fill in the blanks. ");
+                }
+
+            }
+
+        });
 
         courseTable = new JTable(courseTableModel);
         add(courseNameLabel,0,0,1,1,1,1);

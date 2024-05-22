@@ -17,10 +17,6 @@ public class MainFrame extends JFrame {
         enrolledTableModel = new EnrolledTableModel();
         enrolleesTable = new JTable(enrolledTableModel);
 
-
-
-
-
         setVisible(true);
         pack();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
