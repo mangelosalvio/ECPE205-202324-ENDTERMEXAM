@@ -1,6 +1,8 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CoursePanel extends JPanel {
 
@@ -10,7 +12,7 @@ public class CoursePanel extends JPanel {
     public CourseTableModel courseTableModel;
 
 
-    public JButton courseAdd;
+    JButton courseAddbtn;
 
 
     public CoursePanel() {
@@ -19,21 +21,43 @@ public class CoursePanel extends JPanel {
     private void init(){
         courseTableModel = new CourseTableModel();
         courseTable = new JTable(courseTableModel);
-        courseNameLabel = new JLabel("Course Name: ");
-        courseCodeLabel = new JLabel("Course Code: ");
+        courseNameLabel = new JLabel("COURSE NAME: ");
+        courseCodeLabel = new JLabel("COURSE CODE: ");
         courseNameField = new JTextField(10);
         courseCodeField = new JTextField(10);
-        courseAdd = new JButton("ADD");
+        courseAddbtn = new JButton("ADD");
         this.setLayout(new GridBagLayout());
+        courseAddbtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String courseName = courseNameField.getText();
+                String courseCode = courseCodeField.getText();
 
+                Course course1 = new Course(courseCode,courseName);
+
+                if(! courseName.isEmpty() && !courseCode.isEmpty()){
+                    courseNameField.setText("");
+                    courseCodeField.setText("");
+
+                    courseTableModel.list.add(course1);
+                    courseTable.updateUI();
+
+                }
+                else {
+                    JOptionPane.showMessageDialog(CoursePanel.this, "Please fill in the blanks. ");
+                }
+
+            }
+
+        });
 
         courseTable = new JTable(courseTableModel);
         add(courseNameLabel,0,0,1,1,1,1);
         add(courseNameField,1,0,2,1,1,1);
         add(courseCodeLabel,0,1,1,1,1,1);
         add(courseCodeField,1,1,2,1,1,1);
-        courseAdd.setHorizontalAlignment(SwingConstants.LEFT);
-        add(courseAdd,1,2,1,1,1,1, 0);
+        courseAddbtn.setHorizontalAlignment(SwingConstants.LEFT);
+        add(courseAddbtn,1,2,1,1,1,1, 0);
         add(new JScrollPane(courseTable),0,3,3,1,1,1);
 
 
