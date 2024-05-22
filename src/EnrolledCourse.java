@@ -9,6 +9,9 @@ public class EnrolledCourse {
         this.students = new ArrayList<>();
     }
 
+    public EnrolledCourse(String code, String courseName, String enrollees) {
+    }
+
     public void addStudent (Student student) {
         students.add(student);
     }

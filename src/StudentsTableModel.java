@@ -14,7 +14,7 @@ public class StudentsTableModel extends AbstractTableModel {
     }
 
 
-    public void removeStudent( int index ) {
+    public void removeStudent(int index) {
         list.remove(index);
     }
 
@@ -30,17 +30,18 @@ public class StudentsTableModel extends AbstractTableModel {
 
     @Override
     public String getColumnName(int column) {
-        String[] columns = new String[]{"ID","Name"};
+        String[] columns = new String[]{"ID", "Name"};
         return columns[column];
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Student student = list.get(rowIndex);
-        if ( columnIndex == 0 ) {
+        if (columnIndex == 0) {
             return student.getId();
         } else {
             return student.getName();
         }
     }
 }
+
