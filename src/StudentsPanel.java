@@ -1,100 +1,73 @@
 import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class StudentsPanel extends JPanel {
-    public JLabel studentIDLabel, nameLabel;
-    public JTextField studentIDField, nameField;
-    public JTable studentsTable;
-    public StudentsTableModel studentsTableModel;
-    public JButton addButton;
-    public JTable table;
-    public JScrollPane scrollPane;
+    JTable studentTable;
+    JScrollPane studentScrollPane;
+    JLabel studIDLabel, NameLabel;
+    JTextField IDTextField, nTextField;
+    JButton addStudent;
+    Student student;
+    StudentsTableModel studentsTableModel;
+    public StudentsPanel(){
+        init ();
 
-    public StudentsPanel() {
-        init();
     }
-
-    private void init(){
-        studentsTableModel  = new StudentsTableModel();
-        studentsTable = new JTable(studentsTableModel);
-
-        this.setLayout(new GridBagLayout());
+    public void init(){
+        setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
 
-        TitledBorder titledBorder = new TitledBorder(BorderFactory
-                .createLineBorder(new Color(155,211,221)), "Student");
-        this.setBorder(titledBorder);
+        studentsTableModel = new StudentsTableModel();
+        studentTable = new JTable(studentsTableModel);
 
-        add(0,0,c);
-        this.add(studentIDLabel = new JLabel("Student ID:"), c);
+        studIDLabel = new JLabel("Student ID: ");
+        NameLabel = new JLabel("Name: ");
 
-        add(1, 0,c);
-        this.add(studentIDField = new JTextField(29),c);
-        border(studentIDField);
+        IDTextField = new JTextField(20);
+        nTextField = new JTextField(20);
 
-        add(0,1,c);
-        this.add(nameLabel = new JLabel("Name:"),c);
+        addStudent = new JButton("Add");
 
-        add(1,1,c);
-        this.add(nameField = new JTextField(29),c);
-        border(nameField);
+        add(studIDLabel, 0, 0, c);
+        add(NameLabel, 0, 1, c);
+        add(IDTextField, 1, 0, c);
+        add(nTextField, 1, 1, c);
+        add(addStudent,1,2, c);
+        add(studentScrollPane = new JScrollPane(studentTable),0,3,3,1,c);
 
-        add(1,2,1,1,c);
-        this.add(addButton = new JButton("Add"),c);
-
-        add(0,3,2,1,c);
-        this.add(table = new JTable(studentsTableModel),c);
-        scrollPane = new JScrollPane(table);
-
-        this.add(scrollPane,c);
-        add(0,4,1,1,c);
-
-        addButton.addActionListener(new ActionListener() {
+        addStudent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String id = studentIDField.getText();
-                String name = nameField.getText();
-                String [] container ={id, name};
 
-                if(id.isEmpty() || name.isEmpty()){
-                    JOptionPane.showMessageDialog(null,
-                            "Fill in all fields","ERROR",JOptionPane.ERROR_MESSAGE);
+                student = new Student(IDTextField.getText(), nTextField.getText());
+                studentsTableModel.addStudent(student);
 
-                }else{
-                    studentsTableModel.getRowCount();
-                    studentIDField.setText("");
-                    nameField.setText("");
-
-                }
+                IDTextField.setText("");
+                nTextField.setText("");
+                nTextField.requestFocus();
+                studentTable.updateUI();
             }
         });
-
-
     }
-    private static void add(int gridx, int gridy, GridBagConstraints c)
-    {
-        c.gridx = gridx;
-        c.gridy = gridy;
-        c.gridwidth = 1;
-        c.gridheight = 1;
-        c.fill = GridBagConstraints.BOTH;
+    private void add(JComponent component, int x, int y, GridBagConstraints c){
+        c = new GridBagConstraints();
+        c.gridx = x;
+        c.gridy = y;
+        c.fill = GridBagConstraints.NONE;
         c.insets = new Insets(5,5,5,5);
+        add(component, c);
     }
-    private static void add(int gridx, int gridy, int gridWidth, int gridHeight, GridBagConstraints c)
-    {
-        c.gridx = gridx;
-        c.gridy = gridy;
+    private void add(JComponent component, int x, int y, int gridWidth, int gridHeight, GridBagConstraints c){
+        c = new GridBagConstraints();
+        c.gridx = x;
+        c.gridy = y;
         c.gridwidth = gridWidth;
         c.gridheight = gridHeight;
-        c.fill = GridBagConstraints.BOTH;
+        c.fill = GridBagConstraints.HORIZONTAL;
         c.insets = new Insets(5,5,5,5);
+        add(component, c);
     }
-    private void border(JTextField textField)
-    {
-        textField.setBorder(BorderFactory.createLineBorder(new Color(155,211,221)));
-    }
-}
 
+}

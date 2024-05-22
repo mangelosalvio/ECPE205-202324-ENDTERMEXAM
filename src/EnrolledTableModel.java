@@ -2,7 +2,7 @@ import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 
 public class EnrolledTableModel extends AbstractTableModel {
-    ArrayList<EnrolledCourse> enrolledCourses;
+    static ArrayList<EnrolledCourse> enrolledCourses;
 
     public EnrolledTableModel() {
         enrolledCourses = new ArrayList<>();
