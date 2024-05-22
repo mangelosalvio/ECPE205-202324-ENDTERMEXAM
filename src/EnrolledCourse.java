@@ -9,7 +9,7 @@ public class EnrolledCourse {
         this.students = new ArrayList<>();
     }
 
-    public void addStudent (Student student) {
+    public void addStudent(Student student) {
         students.add(student);
     }
 
@@ -30,6 +30,6 @@ public class EnrolledCourse {
     }
 
     public String studentsToString() {
-        return students.toString().replace("[","").replace("]","");
+        return students.toString().replace("[", "").replace("]", "");
     }
 }

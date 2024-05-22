@@ -1,5 +1,6 @@
 public class Student {
-    public String id, name;
+    private String id;
+    private String name;
 
     public Student(String id, String name) {
         this.id = id;
@@ -24,6 +25,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return  id + " - " +name;
+        return id + " - " + name;
     }
 }

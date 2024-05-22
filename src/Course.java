@@ -1,5 +1,6 @@
 public class Course {
-    public String courseCode, name;
+    private String courseCode;
+    private String name;
 
     public Course(String courseCode, String name) {
         this.courseCode = courseCode;
