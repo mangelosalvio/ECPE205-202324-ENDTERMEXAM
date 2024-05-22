@@ -9,7 +9,7 @@ public class StudentsPanel extends JPanel {
     public JTextField studentIDField, nameField;
     public JTable studentsTable;
     public StudentsTableModel studentsTableModel;
-    JButton studentAdd;
+    JButton studentAddbtn;
     public StudentsPanel() {
         init();
     }
@@ -17,21 +17,21 @@ public class StudentsPanel extends JPanel {
     private void init(){
         studentsTableModel  = new StudentsTableModel();
         studentsTable = new JTable(studentsTableModel);
-        studentIDLabel = new JLabel("Course Name: ");
-        nameLabel = new JLabel("Course Code: ");
+        studentIDLabel = new JLabel("STUDENT ID: ");
+        nameLabel = new JLabel("NAME: ");
         studentIDField = new JTextField(10);
         nameField = new JTextField(10);
-        studentAdd = new JButton("ADD");
+        studentAddbtn = new JButton("ADD");
         this.setLayout(new GridBagLayout());
-        studentAdd.addActionListener(new ActionListener() {
+        studentAddbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String courseName = studentIDField.getText();
-                String courseCode = nameField.getText();
+                String id = studentIDField.getText();
+                String name = nameField.getText();
 
-                Student student1 = new Student(courseCode,courseName);
+                Student student1 = new Student(id,name);
 
-                if(! courseName.isEmpty() && !courseCode.isEmpty()){
+                if(! id.isEmpty() && !name.isEmpty()){
                     studentIDField.setText("");
                     nameField.setText("");
 
@@ -49,11 +49,11 @@ public class StudentsPanel extends JPanel {
 
         studentsTable = new JTable(studentsTableModel);
         add(studentIDLabel,0,0,1,1,1,1);
-        add(nameField,1,0,2,1,1,1);
-        add(studentIDLabel,0,1,1,1,1,1);
-        add(studentIDField,1,1,2,1,1,1);
-        studentAdd.setHorizontalAlignment(SwingConstants.LEFT);
-        add(studentAdd,1,2,1,1,1,1, 0);
+        add(studentIDField,1,0,2,1,1,1);
+        add(nameLabel,0,1,1,1,1,1);
+        add(nameField,1,1,2,1,1,1);
+        studentAddbtn.setHorizontalAlignment(SwingConstants.LEFT);
+        add(studentAddbtn,1,2,1,1,1,1, 0);
         add(new JScrollPane(studentsTable),0,3,3,1,1,1);
 
 
