@@ -9,7 +9,7 @@ public class Main {
         studentsFrame.setVisible(true);
 
 
-        //display course frame
+        //course frame
         JFrame courseFrame = new JFrame();
         courseFrame.add(new CoursePanel());
         courseFrame.pack();
