@@ -18,7 +18,7 @@ public class StudentsPanel extends JPanel {
         studentsTableModel  = new StudentsTableModel();
         studentsTable = new JTable(studentsTableModel);
         studentIDLabel = new JLabel("STUDENT ID: ");
-        nameLabel = new JLabel("NAME: ");
+        nameLabel = new JLabel("NAME:  ");
         studentIDField = new JTextField(10);
         nameField = new JTextField(10);
         studentAddbtn = new JButton("ADD");
