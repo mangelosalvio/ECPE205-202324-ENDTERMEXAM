@@ -30,7 +30,7 @@ public class StudentsTableModel extends AbstractTableModel {
 
     @Override
     public String getColumnName(int column) {
-        String[] columns = new String[]{"ID","Name"};
+        String[] columns = new String[]{"ID","NAME"};
         return columns[column];
     }
 
@@ -39,8 +39,12 @@ public class StudentsTableModel extends AbstractTableModel {
         Student student = list.get(rowIndex);
         if ( columnIndex == 0 ) {
             return student.getId();
-        } else {
+        } else if ( columnIndex == 0 ) {
             return student.getName();
+        } else {
+            return null;
+        }
+
         }
     }
-}
+
